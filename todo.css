@@ -1,0 +1,185 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+:root {
+    --background: steelblue;
+    --container: gray;
+    --border: 1px solid black;
+    --delete-button: rgba(250, 0, 0, 0.55);
+    --add-button: rgba(0, 128, 0, 0.7);
+    --task-text-background: rgba(255, 255, 255, 0.7);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+    font-family: Poppins, sans-serif;
+}
+
+.button {
+    height: 100%;
+    padding: 0 0.3rem;
+    align-self: center;
+    border: var(--border);
+    background-color: var(--delete-button);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: rgba(250, 0, 0, 0.55);
+    scale: 1.02;
+}
+
+.todo-container {
+    margin: 1rem 1rem;
+    display: grid;
+    gap: 1rem;
+    font-size: 1.2rem;
+}
+
+.todo-header {
+    display: grid;
+    padding: 0.5rem;
+    gap: 0.5rem;
+    background-color: var(--container);
+    border: var(--border);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.todo-header form {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.todo-header form input {
+    width: 100%;
+    padding: 0.3rem;
+    outline: none;
+    background-color: var(--task-text-background);
+    border: var(--border);
+    font-size: 1.2rem;
+    word-break: break-all;
+}
+
+.todo-header form button {
+    padding: 0 1rem;
+    background-color: var(--add-button);
+}
+
+.todo-header form button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--add-button);
+}
+
+.todo-body {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0.5rem;
+    background-color: var(--container);
+    border: var(--border);
+}
+
+.todo-footer {
+    display: grid;
+    gap: 0.3rem;
+}
+
+.todo-footer-task {
+    padding: 0.5rem;
+    display: flex;
+    gap: 0.3rem;
+    background-color: var(--container);
+    border: var(--border);
+
+}
+
+.push-down {
+    animation: push-down 1s ease;
+}
+
+.todo-footer-task div {
+    width: 100%;
+    padding: 0.3rem;
+    align-self: center;
+    background-color: var(--task-text-background);
+    border: var(--border);
+    word-break: break-all;
+}
+
+
+.fade-in {
+    animation: fade-in 2s ease;
+}
+
+@keyframes push-down {
+    from {
+        transform: translateY(-2rem);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0.5;
+        transform: translateY(-5rem) translateX(0);
+    }
+    40% {
+        opacity: 1;
+        transform: translateY(0) translateX(50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) translateX(-8%);
+    }
+}
+
+
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        scale: 1;
+    }
+    to {
+        opacity: 0;
+        scale: 1.2;
+    }
+}
+
+@media (min-width: 576px) {
+    .todo-container {
+        margin: 2rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .todo-container {
+        margin: 2rem auto;
+        width: 70%;
+    }
+}
+
+@media (min-width: 992px) {
+    .todo-container {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .todo-container {
+        width: 600px;
+    }
+}
